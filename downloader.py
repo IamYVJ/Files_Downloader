@@ -1,5 +1,10 @@
 import requests 
 from time import sleep
+import os
+
+def create_directory():
+    if not os.path.exists('Downloads'):
+        os.mkdir('Downloads')
 
 def download(url):
     r = requests.get(url)
@@ -8,6 +13,8 @@ def download(url):
         f.write(r.content) 
 
 def main():
+
+    create_directory()
 
     urls = []
 
